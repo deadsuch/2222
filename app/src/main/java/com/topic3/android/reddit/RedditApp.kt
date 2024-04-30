@@ -24,6 +24,7 @@ import com.topic3.android.reddit.viewmodel.MainViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
+
 @Composable
 fun RedditApp(viewModel: MainViewModel) {
     RedditTheme {
