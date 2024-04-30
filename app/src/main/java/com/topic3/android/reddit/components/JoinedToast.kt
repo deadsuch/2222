@@ -19,11 +19,22 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.topic3.android.reddit.R
 import androidx.compose.foundation.layout.Box
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.slideInVertically
+import androidx.compose.animation.slideOutVertically
 
 @Composable
 fun JoinedToast(visible: Boolean)
 {
-    ToastContent()
+    AnimatedVisibility(
+        visible = visible,
+        enter = slideInVertically(initialOffsetY = {+40}) + fadeIn(),
+        exit = slideOutVertically() + fadeOut()
+    ) {
+        ToastContent()
+    }
 }
 
 @Composable
