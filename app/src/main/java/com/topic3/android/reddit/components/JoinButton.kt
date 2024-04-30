@@ -1,6 +1,8 @@
 package com.topic3.android.reddit.components
 
-
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material.Text
+import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -90,7 +92,11 @@ fun JoinButton(onClick:(Boolean)-> Unit = {}){
     Box(
         modifier = Modifier
             .clip(shape)
-            .border(width = 1.dp, color = Color.Blue, shape = shape)
+            .border(
+                width = 1.dp,
+                color = Color.Blue,
+                shape = shape
+            )
             .background(color = buttonBackgroundColor)
             .size(width = 40.dp, height = 24.dp)
             .clickable (onClick = {
@@ -105,12 +111,26 @@ fun JoinButton(onClick:(Boolean)-> Unit = {}){
             }),
         contentAlignment = Alignment.Center
     ){
-        Icon(
-            imageVector = iconAsset,
-            contentDescription = "Plus Icon",
-            tint = iconTintColor,
-            modifier = Modifier.size(16.dp)
-        )
+        Row(
+            verticalAlignment = Alignment.CenterVertically
+        ) {
+            Icon(
+                imageVector = iconAsset, contentDescription = "Plus Icon",
+                tint = iconTintColor,
+                modifier = Modifier.size(16.dp)
+            )
+            Text(
+                text = "Join",
+                color = Color.White,
+                fontSize = 14.sp,
+                maxLines = 1,
+                modifier = Modifier
+                    .widthIn(
+                        min = 0.dp,
+                        max = textMaxWidth
+                    )
+            )
+        }
     }
 }
 
